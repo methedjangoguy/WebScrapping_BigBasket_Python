@@ -84,13 +84,13 @@ def parse_data(html, products_list, counter):
         except Exception:
             product_sale_price = "No Product Sale Price"
         
-        print(f"Product Brand Name: {product_brand_name}")
-        print(f"Product Name: {product_name}")
-        print(f"Product Quantity: {product_quantity}")
-        print(f"Product Offered Price: {product_offered_price}")
-        print(f"Product Original Price: {product_original_price}")
-        print(f"Product Sale Price: {product_sale_price}")
-        print(f"Product Discount: {product_discount}")
+        _scrape_logger.info(f"Product Brand Name: {product_brand_name}")
+        _scrape_logger.info(f"Product Name: {product_name}")
+        _scrape_logger.info(f"Product Quantity: {product_quantity}")
+        _scrape_logger.info(f"Product Offered Price: {product_offered_price}")
+        _scrape_logger.info(f"Product Original Price: {product_original_price}")
+        _scrape_logger.info(f"Product Sale Price: {product_sale_price}")
+        _scrape_logger.info(f"Product Discount: {product_discount}")
         print("-------------")
         products_list.append({"Product Brand Name":product_brand_name, "Product Name": product_name, "Product Quantity":product_quantity, "Product Offered Price":product_offered_price, "Product Original Price":product_original_price,"Product Sale Price": product_sale_price, "Product Discount":product_discount})
         counter += 1
