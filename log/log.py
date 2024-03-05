@@ -1,28 +1,17 @@
 import logging
 import logging.handlers as handlers
 
-
-class CustomFormatter:
+class CustomFormatter(logging.Formatter):
     HEADER = "\033[95m"
-
     OKBLUE = "\033[94m"
-
     OKCYAN = "\033[96m"
-
     OKGREEN = "\033[92m"
-
     WARNING = "\033[93m"
-
     FAIL = "\033[91m"
-
     ENDC = "\033[0m"
-
     BOLD = "\033[1m"
-
     UNDERLINE = "\033[4m"
-
     CRITICAL = "\x1b[31;1m"
-
     format = "%(message)s"
 
     FORMAT = {
@@ -35,10 +24,14 @@ class CustomFormatter:
 
     def format(self, record):
         log_fmt = self.FORMAT.get(record.levelno)
+        # Ensure the base class knows about the dynamic format
+        self._style._fmt = log_fmt
 
-        formatter = logging.Formatter(log_fmt)
+        # Use the parent class to format the record
+        formatted_record = super().format(record)
 
-        return formatter.format(record)
+        # Encode to UTF-8 and then decode it. This ensures proper handling of Unicode characters
+        return formatted_record.encode('utf-8').decode('utf-8')
 
 
 logPath = "./Logs"
@@ -51,7 +44,7 @@ fileFormatter = logging.Formatter(fileLogformat)
 
 
 fileHandler = handlers.TimedRotatingFileHandler(
-    "{0}/{1}".format(logPath, logFileName), when="midnight", interval=1, backupCount=31
+    "{0}/{1}".format(logPath, logFileName), when="midnight", interval=1, backupCount=31, encoding='utf-8'
 )
 
 fileHandler.setFormatter(fileFormatter)
