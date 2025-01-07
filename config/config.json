@@ -1,4 +1,19 @@
 {
     "base_url": "https://www.bigbasket.com/cl/",
-    "categories": ["fruits-vegetables","foodgrains-oil-masala","bakery-cakes-dairy","beverages","snacks-branded-foods","beauty-hygiene","cleaning-household","kitchen-garden-pets","eggs-meat-fish","gourmet-world-food","baby-care","paan-corner"]
+    "categories": [
+        "electronics",
+        "fashion",
+        "fruits-vegetables",
+        "foodgrains-oil-masala",
+        "bakery-cakes-dairy",
+        "beverages",
+        "snacks-branded-foods",
+        "beauty-hygiene",
+        "cleaning-household",
+        "kitchen-garden-pets",
+        "eggs-meat-fish",
+        "gourmet-world-food",
+        "baby-care",
+        "paan-corner"
+    ]
 }
