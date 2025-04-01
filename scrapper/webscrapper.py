@@ -75,7 +75,7 @@ def parse_data(html, products_list, counter):
                         "span", class_="Label-sc-15v1nk5-0 gJxZPQ truncate"
                     ).text.strip()
                 except AttributeError:
-                    product_quantity
+                    product_quantity = 0
 
         try:
             product_offered_price = product.find(
